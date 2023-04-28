@@ -1,0 +1,50 @@
+#note-form {
+  max-width: 30rem;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 6px;
+  background-color: var(--color-primary-100);
+}
+
+#note-form label,
+#note-form input,
+#note-form textarea {
+  display: block;
+  text-align: center;
+}
+
+#note-form input,
+#note-form textarea {
+  width: 100%;
+  font: inherit;
+  padding: 0.5rem 0.25rem;
+  background-color: var(--color-primary-200);
+  border: none;
+  border-radius: 2px;
+  color: var(--color-primary-800);
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.form-actions button {
+  font: inherit;
+  cursor: pointer;
+  background-color: var(--color-primary-200);
+  color: var(--color-primary-700);
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 24px;
+}
+
+.form-actions button:hover {
+  background-color: var(--color-primary-300);
+}
+
+a {
+  text-decoration: none;
+  color:  azure
+}
