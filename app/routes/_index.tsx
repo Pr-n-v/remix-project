@@ -11,6 +11,12 @@ export default function Index() {
       <p id="cta">
         <Link to="/library">Book details !!!!</Link>
       </p>
+      <br />
+      <br />
+      <br />
+      <p id="cta">
+        <Link to="/user">User Authetification</Link>
+      </p>
     </main>
   );
 }
