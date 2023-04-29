@@ -1,34 +1,43 @@
 import { Link } from "@remix-run/react";
 
-interface att {
+interface lib {
+    id: string;
   name: string;
-  attendance: string;
-  id: string;
+  author: string;
+  language: string;
+  genre: string;
+  borrow: string;
+  returner: string;
+  status: string;
+
 }
 
-export default function ({ att }: { att: att[] }) {
+export default function ({ lib }: { lib: lib[] }) {
   return (
-    <ul id="att-list">
-      {att.map((att, index) => (
-        <li key={att.id} className="att">
-          <Link to={att.id}>
+    <ul id="lib-list">
+      {lib.map((lib, index) => (
+        <li key={lib.id} className="lib">
+          <Link to={lib.id}>
             <article>
               <header>
-                <ul className="att-meta">
+                <ul className="lib-meta">
                   <li>#{index + 1}</li>
                   <li>
-                    <time dateTime={att.id}>
+                    <time dateTime={lib.id}>
                       {new Date().toLocaleDateString("en-US", {
                         day: "numeric",
                         month: "short",
-                        hour: "2-digit",
                       })}
                     </time>
                   </li>
                 </ul>
-                <h2>{att.name}</h2>
-              </header>
-              <p>{att.attendance}</p>
+                </header>
+                <h2>{lib.name}</h2>
+              <p>{lib.author}</p>
+              <p>{lib.language}</p>
+              <p>{lib.borrow}</p>
+              <p>{lib.returner}</p>
+              <p>{lib.status}</p>
             </article>
           </Link>
         </li>

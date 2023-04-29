@@ -8,6 +8,16 @@
   margin: 2rem auto;
 }
 
+#note-list {
+  max-width: 68rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  margin: 2rem auto;
+}
+
 #note-list a {
   text-decoration: none;
 }

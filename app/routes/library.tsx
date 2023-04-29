@@ -8,18 +8,23 @@ import attlist from "~/styles/NoteList.css";
 import NoteList from "components/NoteList";
 import NewNote from "components/NewNote";
 
-interface att {
-  name: string;
-  attendance: string;
+interface lib {
   id: string;
+  name: string;
+  author: string;
+  genre: string;
+  language: string;
+  borrow: string;
+  returner: string;
+  status: string;
 }
 
 export default function () {
-  const attendData: att[] = useLoaderData();
+  const attendData: lib[] = useLoaderData();
   return (
     <main>
       <NewNote />
-      <NoteList att={attendData} />
+      <NoteList lib={attendData} />
     </main>
   );
 }
@@ -34,11 +39,11 @@ export function links() {
 export async function action({ request }: ActionArgs) {
   const formData = await request.formData();
   const attData = Object.fromEntries(formData);
-  await axios.post("http://127.0.0.1:8000/att", attData);
-  return redirect("/att");
+  await axios.post("http://127.0.0.1:8000/library", attData);
+  return redirect("/library");
 }
 
 export async function loader() {
-  const attendance = await axios.get("http://127.0.0.1.:8000/getatt");
-  return attendance.data;
+  const library = await axios.get("http://127.0.0.1.:8000/getlibrary");
+  return library.data;
 }

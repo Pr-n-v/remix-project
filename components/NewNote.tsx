@@ -5,26 +5,45 @@ export default function () {
   const isSubmitting = navigation.state === "submitting";
   return (
     <main>
-        <h1>Hey there,please enter your attendance for the day!!</h1>
-      <Form method="post" id="att-form">
+           <h1>Book details</h1>
+      <Form method="post" id="library-form">
         <p>
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name">Book name:</label>
           <input type="text" id="name" name="name" required />
         </p>
         <p>
-          <label htmlFor="srn">SRN:</label>
-          <input type="text" id="srn" name="srn" required />
+            <label htmlFor="author">Author name:</label>
+            <input type="text" id="author" name="author" required />
         </p>
         <p>
-            <label htmlFor="sem">Semester:</label>
-            <input type="text" id="sem" name="sem" required />
+          <label htmlFor="language">Language:</label><br />
+         <label htmlFor="english"> English</label>
+         <input type="radio" id="english" name="language" required />
+         <label htmlFor="hindi">  Hindi</label>
+         <input type="radio" id="hindi" name="language" required />
+         <label htmlFor="german">  German</label>
+         <input type="radio" id="german" name="language" required />
+         <label htmlFor="russian">  Russian</label>
+         <input type="radio" id="russian" name="language" required />
         </p>
         <p>
-            <label htmlFor="attendance">Student attendace: </label>
+            <label htmlFor="genre">Genre:</label>
+            <input type="text" id="genre" name="genre" required />
+        </p>
+        <p>
+            <label htmlFor="borrow">Date of borrowing:</label>
+            <input type="date" id="borrow" name="borrow" required />
+        </p>
+        <p>
+        <label htmlFor="return">Date of returning:</label>
+            <input type="date" id="returner" name="returner" required /> 
+        </p>
+        <p>
+            <label htmlFor="">Is the book being taken/returned: </label>
             <br />
-            Present <input type="radio" id="present" name="attendance" value="present" />
+            Taken <input type="radio" id="taken" name="status" value="taken" />
             <br />
-            Absent <input type= "radio" id="absent" name="attendance" value="absent" />
+            Available <input type= "radio" id="returned" name="status" value="available" />
         </p>
         <div className="form-actions">
           <button disabled={isSubmitting}>

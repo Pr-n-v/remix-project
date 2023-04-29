@@ -5,11 +5,11 @@ import homestyle from "~/styles/home.css";
 export default function Index() {
   return (
     <main id="attendance">
-      <h2>Please enter the student's attendance details</h2>
+      <h2>Welcome to the world of books :3</h2>
       
       
       <p id="cta">
-        <Link to="/att">Enter Attendance</Link>
+        <Link to="/library">Book details !!!!</Link>
       </p>
     </main>
   );
