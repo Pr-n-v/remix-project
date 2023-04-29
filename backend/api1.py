@@ -3,11 +3,12 @@ from flask import Flask,request,jsonify
 import pymongo
 import datetime
 import json
+import database
 
 
 from pymongo import MongoClient
 
-lib_app = Flask(_name_)
+lib_app = Flask(__name__)
 lib_app.config['MONGO_URI'] = 'mongodb://localhost:27017/library'
 
 mongo_client = MongoClient(lib_app.config['MONGO_URI'])
@@ -17,7 +18,7 @@ db = mongo_client['library']
 
 
 class Book:
-    def _init_(self,name,author,language,genre,borrow,returner,status):
+    def _init_(self,name,author,language,genre,borrow,returner,status,student_id,book_id,loan_date):
         self.name=name
         self.author=author
         self.language=language
@@ -25,15 +26,9 @@ class Book:
         self.borrow=borrow
         self.returner=returner
         self.status=status
-
-class Loan:
-    def _init_(self,student_id,book_id,loan_date):
         self.student_id=student_id
         self.book_id=book_id
-        self.loan_date=loan_date
-        self.return_date=None
-
-
+        self.returner=None
 
 @lib_app.route('/return-book',methods=['POST'])
 def return_book():
@@ -49,11 +44,11 @@ def return_book():
     
     if not book:
         return jsonify({'message':'Book not loaned/not found'}),404
-    if book.get('return_date'):
+    if book.get('returner'):
         return jsonify({'message':'Book already returned'}),400
     return_date=datetime.date.today()
-    db.status.update_one({"book_id":book}, {'$set': {'status': 'available'}})
+    db.database.library.update_one({"book_id":book}, {'$set': {'status': 'available'}})
     return jsonify({'message':"Book was returned successfully"})
 
-if _name=='main_':
+if __name__=='main_':
     lib_app.run()

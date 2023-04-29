@@ -14,7 +14,7 @@ import styles from "~/styles/main.css";
 
 export function meta() {
   return [
-    { title: "My Attendance" },
+    { title: "Library system" },
     { name: "description", content: "..." },
     { property: "og:title", content: "..." }]}
 

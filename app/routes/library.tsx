@@ -10,6 +10,7 @@ import NewNote from "components/NewNote";
 
 interface lib {
   id: string;
+  book_id: number;
   name: string;
   author: string;
   genre: string;

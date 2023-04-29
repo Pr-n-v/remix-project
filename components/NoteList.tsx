@@ -1,7 +1,7 @@
 import { Link } from "@remix-run/react";
 
 interface lib {
-    id: string;
+    id: number;
   name: string;
   author: string;
   language: string;
@@ -32,12 +32,10 @@ export default function ({ lib }: { lib: lib[] }) {
                   </li>
                 </ul>
                 </header>
-                <h2>{lib.name}</h2>
-              <p>{lib.author}</p>
-              <p>{lib.language}</p>
-              <p>{lib.borrow}</p>
-              <p>{lib.returner}</p>
-              <p>{lib.status}</p>
+                <h2>{lib.name}</h2>          
+                <p>taken on {lib.borrow}</p>
+                <p>{lib.returner}</p>
+                <p>{lib.status}</p>
             </article>
           </Link>
         </li>
